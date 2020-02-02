@@ -57,6 +57,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CubeScript.cs" />
      <Compile Include="Assets\Scripts\GameConstants.cs" />
+     <Compile Include="Assets\Scripts\SpeedSterBehavior.cs" />
+     <Compile Include="Assets\Scripts\SpeedSterCube.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/OMADJANG/Desktop/ProjetPerso/GameDevIn/C#_Unity/ChasingCube/ChasingCube/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

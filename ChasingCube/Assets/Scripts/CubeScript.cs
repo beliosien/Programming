@@ -3,26 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  Class cube the base of all type of cube in the game 
+///  Cube class the base of all type of cube in the game 
 /// </summary>
 public class CubeScript
 {
+    #region fields
+
+    ///<summary>
+    /// fields
+    ///</summary>
     private float damagePt;
     private float health;  
     private float speed;
-    GameConstants.CubeType cubeType; 
+    GameConstants.CubeType cubeType;
+    private GameObject gameObject;
 
-    #region  constructor
+    #endregion 
+
+    #region constructor
 
     ///<summary>
     /// constructor 
     ///</summary>
-    CubeScript(float damagePt, float health, GameConstants.CubeType cubeType)
+    public CubeScript(GameConstants.CubeType cubeType, GameObject gameObject)
     {
-        this.damagePt = damagePt;
-        this.health = health;
-        this.speed = 10.0f;
+        this.damagePt = GameConstants.DAMAGE_POINT;
+        this.health = GameConstants.HEALTH;
+        this.speed = GameConstants.INITIAL_SPEED;
         this.cubeType = cubeType;
+        this.gameObject = gameObject;
     }
 
     #endregion
@@ -52,6 +61,7 @@ public class CubeScript
     public float Speed
     {
         get {return speed;}
+        set {speed = value;}
     }
 
     ///<summary>
@@ -62,6 +72,14 @@ public class CubeScript
         get {return cubeType;}
     }
 
+    ///<summary>
+    /// Get the game object 
+    ///</summary>
+    public GameObject GameObject 
+    {
+        get {return gameObject;}
+    }
+
     #endregion
 
     #region Public methods
@@ -69,11 +87,11 @@ public class CubeScript
     ///<summary>
     /// move the cube in the direction that we want
     ///</summary>
-    public void Move()
-    {
-        float moveHorizontal = -1*Input.GetAxis("Horizontal");
-        float moveVertical = -1*Input.GetAxis("Vertical");
-        //transform.Translate(moveHorizontal*Time.deltaTime*speed, 0.0f, moveVertical*Time.deltaTime*speed);
+    public virtual void Move() {
+        float translationX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float translationY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        gameObject.transform.Translate(translationX,0,translationY);
+        
     }
 
     ///<summary>
