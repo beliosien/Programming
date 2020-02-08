@@ -87,19 +87,39 @@ public class CubeScript
     ///<summary>
     /// move the cube in the direction that we want
     ///</summary>
-    public virtual void Move() {
-        float translationX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        float translationY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        gameObject.transform.Translate(translationX,0,translationY);
-        
+    public virtual void Move() 
+    {
+        if (gameObject.tag == GameConstants.HUNTED) 
+        {
+            float translationX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            float translationY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            gameObject.transform.Translate(translationX,0,translationY);  
+        } else if (gameObject.tag == GameConstants.HUNTER)
+        {
+            // we find the hunted cube to chase after it 
+            GameObject hunted = GameObject.FindGameObjectWithTag(GameConstants.HUNTED);
+            this.ChaseCube(hunted);
+        } 
+         
+
     }
+    #endregion
+
+
+    #region  private methods
 
     ///<summary>
     /// the hunter chase the hunted
     ///<param name="cube">cube we are chasing after</param>
     ///</summary>
-    public void ChaseCube(GameObject cube) {
-        
+    private void ChaseCube(GameObject cube) 
+    {
+        float distance = Vector3.Distance(gameObject.transform.position,  cube.gameObject.transform.position);
+        if (distance > GameConstants.MINDIST)
+        {
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, 
+                                cube.gameObject.transform.position, 0.3f * Time.deltaTime);
+        }
     }
 
     #endregion

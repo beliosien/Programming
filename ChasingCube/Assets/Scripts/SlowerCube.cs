@@ -28,9 +28,6 @@ public class SlowerCube : CubeScript
     public void ReduceSpeed(GameObject opponentCube) 
     {
         string cubeName = opponentCube.gameObject.name;
-        Debug.Log(cubeName);
-        Debug.Log("reduce function called");
-                
         switch (cubeName)
         {
             case GameConstants.slowerCube: 
@@ -41,7 +38,6 @@ public class SlowerCube : CubeScript
             case GameConstants.speedsterCube:
                 opponentCube.gameObject.GetComponent<SpeedSterBehavior>().CubeSpeedSter.Speed 
                                                     -= GameConstants.FACTOR_SPEED_REDUCE;
-                Debug.Log("reducing the speed of the speedSter cube");
                 break;
 
             default:

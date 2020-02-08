@@ -36,7 +36,7 @@ public class SpeedSterBehavior : MonoBehaviour
     ///</summary>
     void Update()
     {
-        //cubeSpeedSter.Move();
+        cubeSpeedSter.Move();
     }
 
     ///<summary>
