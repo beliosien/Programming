@@ -9,7 +9,16 @@ public class SpeedSterBehavior : MonoBehaviour
 {
     #region fields
 
-    SpeedSterCube cubeSpeed;
+    SpeedSterCube cubeSpeedSter;
+
+    #endregion
+
+    #region properties
+
+    public SpeedSterCube CubeSpeedSter
+    {
+        get {return cubeSpeedSter;}
+    }
 
     #endregion
 
@@ -18,7 +27,7 @@ public class SpeedSterBehavior : MonoBehaviour
     ///</summary>
     void Start()
     {
-        cubeSpeed = new SpeedSterCube(GameConstants.CubeType.speedsterCube, gameObject);
+        cubeSpeedSter = new SpeedSterCube(GameConstants.CubeType.speedsterCube, gameObject);
 
     }
 
@@ -27,7 +36,7 @@ public class SpeedSterBehavior : MonoBehaviour
     ///</summary>
     void Update()
     {
-        cubeSpeed.Move();
+        //cubeSpeedSter.Move();
     }
 
     ///<summary>
@@ -38,7 +47,7 @@ public class SpeedSterBehavior : MonoBehaviour
     {
         if(gameObject.tag == GameConstants.HUNTED && other.gameObject.tag == GameConstants.HUNTER)
         {
-            cubeSpeed.IncreaseSpeed();
+            cubeSpeedSter.IncreaseSpeed();
         }
     }
 }

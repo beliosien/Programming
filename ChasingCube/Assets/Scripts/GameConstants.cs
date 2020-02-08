@@ -9,10 +9,15 @@ public static class GameConstants
     public static float INCREASE_VALUE = 0.25f;
     public static float INITIAL_SPEED = 2.0f;
     public static float DAMAGE_POINT = 10.0f;
+    public static float FACTOR_SPEED_REDUCE = 0.25f;
     public static float HEALTH = 10.0f;
     
     public static string HUNTER = "hunter";
     public static string HUNTED = "hunted";
+
+    public const string slowerCube ="slowerCube";
+    public const string speedsterCube = "speedSterCube";
+
 
 
     ///<summary>
