@@ -18,7 +18,7 @@ public static class GameConstants
     ///<summary>
     /// the minimal distance between cube 
     ///</summary>
-    public static float MINDIST = 1.01f;
+    public static float MINDIST = 1.02f;
     
     ///<summary>
     /// the tags of the game 

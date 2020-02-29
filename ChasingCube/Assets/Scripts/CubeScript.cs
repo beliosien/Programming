@@ -120,6 +120,8 @@ public class CubeScript
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, 
                                 cube.gameObject.transform.position, 0.3f * Time.deltaTime);
         }
+        // stop the game object when it reach the hunted
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     #endregion
