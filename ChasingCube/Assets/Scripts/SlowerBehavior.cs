@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SlowerBehavior : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SlowerBehavior : MonoBehaviour
     #region fields
 
     SlowerCube cubeSlow;
+    ReduceSpeedEvent reduceSpeed = new ReduceSpeedEvent();
 
     #endregion
 
@@ -26,6 +28,7 @@ public class SlowerBehavior : MonoBehaviour
     void Start()
     {
         cubeSlow = new SlowerCube(GameConstants.CubeType.slowerCube, gameObject);
+        EventsManager.AddReduceSpeedInvoker(this);
     }
 
     ///<summary>
@@ -46,5 +49,15 @@ public class SlowerBehavior : MonoBehaviour
         {
             cubeSlow.ReduceSpeed(other.gameObject);
         }
+    }
+
+
+    /// <summary>
+    /// Adds the given listener for the ReduceSpeedEvent
+    /// </summary>
+    /// <param name="listener">listener</param>
+    public void AddReduceSpeedListener(UnityAction<CubeScript> listener)
+    {
+        reduceSpeed.AddListener(listener);
     }
 }

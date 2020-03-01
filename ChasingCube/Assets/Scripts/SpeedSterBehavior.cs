@@ -29,6 +29,7 @@ public class SpeedSterBehavior : MonoBehaviour
     {
         cubeSpeedSter = new SpeedSterCube(GameConstants.CubeType.speedsterCube, gameObject);
 
+
     }
 
     ///<summary>

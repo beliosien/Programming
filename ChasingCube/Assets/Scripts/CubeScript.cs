@@ -91,8 +91,8 @@ public class CubeScript
     {
         if (gameObject.tag == GameConstants.HUNTED) 
         {
-            float translationX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-            float translationY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            float translationX = Input.GetAxis("Horizontal") * speed * Time.deltaTime * -1;
+            float translationY = Input.GetAxis("Vertical") * speed * Time.deltaTime * -1;
             gameObject.transform.Translate(translationX,0,translationY);  
         } else if (gameObject.tag == GameConstants.HUNTER)
         {
