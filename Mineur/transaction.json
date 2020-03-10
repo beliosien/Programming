@@ -1,0 +1,13 @@
+{
+    "sigle": "xxx", 
+    "nom " : "xxx", 
+    "trimestre": "xxx", 
+    "resultats": [
+        {
+            "nom " : "xxx",
+            "prenom " : "xxx",
+            "matricule" : "xxx",
+            "note" : "xxx"
+        }
+    ]
+}
