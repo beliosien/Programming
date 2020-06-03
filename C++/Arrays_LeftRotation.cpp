@@ -1,10 +1,23 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <string>
+#include <fstream>
 
 using namespace std;
 
-vector<string> split_string(string);
+/**
+	Author: Ossim Belias
+*/
 
-// Complete the rotLeft function below.
+void printVector(vector<int> vec)
+{
+	for (auto it = vec.begin(); it != vec.end(); it++)
+	{
+		cout << *it << " ";
+	}
+}
+
+
 vector<int> rotLeft(vector<int> a, int d) {
 	vector<int> resutls(a.size());
 	int limit = a.size() - d; // the number of rotations before returning to initial state
@@ -25,72 +38,60 @@ vector<int> rotLeft(vector<int> a, int d) {
 
 int main()
 {
-	ofstream fout(getenv("OUTPUT_PATH"));
+	fstream fs;
+	fs.open("../LefRotationTest.txt");
 
-	string nd_temp;
-	getline(cin, nd_temp);
+	cout << "---------------------------------" << endl;
+	cout << "Left Rotation Test case" << endl;
+	cout << "---------------------------------" << endl;
 
-	vector<string> nd = split_string(nd_temp);
-
-	int n = stoi(nd[0]);
-
-	int d = stoi(nd[1]);
-
-	string a_temp_temp;
-	getline(cin, a_temp_temp);
-
-	vector<string> a_temp = split_string(a_temp_temp);
+	int n = 0;
+	int d = 0;
+	fs >> n;
+	fs >> d;
 
 	vector<int> a(n);
+	vector<int> actualResult(n);
+	if (fs.is_open())
+	{
+		for (int i = 0; i < n; i++) {
+			fs >> a[i];
+		}
 
-	for (int i = 0; i < n; i++) {
-		int a_item = stoi(a_temp[i]);
-
-		a[i] = a_item;
-	}
-
-	vector<int> result = rotLeft(a, d);
-
-	for (int i = 0; i < result.size(); i++) {
-		fout << result[i];
-
-		if (i != result.size() - 1) {
-			fout << " ";
+		for (int i = 0; i < n; i++)
+		{
+			fs >> actualResult[i];
 		}
 	}
+	else
+	{
+		cout << "Erreur lors de l'ouverture du fichier" << endl;
+	}
 
-	fout << "\n";
+	cout << "Test case 1" << endl;
+	printVector(a);
+	cout << endl;
 
-	fout.close();
+	vector<int> result = rotLeft(a, d);
+	cout << endl;
+
+	for (int i = 0; i < n; i++)
+	{
+		if (actualResult[i] != result[i])
+		{
+			cout << "FAILED !! Expected: " << actualResult[i] << " but got " << result[i] << endl;
+			break;
+		}
+		else if (i == n - 1 && actualResult[i] == result[i])
+		{
+			cout << "PASSED !! Expected: ";
+			printVector(actualResult);
+			cout << " got ";
+			printVector(result);
+			cout << endl;
+		}
+	}
+	fs.close();
 
 	return 0;
-}
-
-vector<string> split_string(string input_string) {
-	string::iterator new_end = unique(input_string.begin(), input_string.end(), [](const char& x, const char& y) {
-		return x == y and x == ' ';
-	});
-
-	input_string.erase(new_end, input_string.end());
-
-	while (input_string[input_string.length() - 1] == ' ') {
-		input_string.pop_back();
-	}
-
-	vector<string> splits;
-	char delimiter = ' ';
-
-	size_t i = 0;
-	size_t pos = input_string.find(delimiter);
-
-	while (pos != string::npos) {
-		splits.push_back(input_string.substr(i, pos - i));
-
-		i = pos + 1;
-		pos = input_string.find(delimiter, i);
-	}
-
-	splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
-
-	return splits;
 }
