@@ -98,6 +98,7 @@ void TestCases(string testCase)
 		else
 		{
 			cout << "Erreur lors de l'ouverture du fichier" << endl;
+			return;
 		}
 	}
 	fs >> actualResult;
@@ -126,15 +127,15 @@ int main()
 	cout << "--------------------------------------------" << endl;
 
 	cout << "Test case 1" << endl;
-	TestCases("../2DArrayTest1.txt");
+	TestCases("2DArrayTest1.txt");
 	cout << endl;
 
 	cout << "Test case 2" << endl;
-	TestCases("../2DArrayTest2.txt");
+	TestCases("2DArrayTest2.txt");
 	cout << endl;
 
 	cout << "Test case 3" << endl;
-	TestCases("../2DArrayTest3.txt");
+	TestCases("2DArrayTest3.txt");
 	cout << endl;
 	
 	return 0;

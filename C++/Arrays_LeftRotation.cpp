@@ -36,14 +36,10 @@ vector<int> rotLeft(vector<int> a, int d) {
 	return resutls;
 }
 
-int main()
+void TestCases(string testCase)
 {
 	fstream fs;
-	fs.open("../LefRotationTest.txt");
-
-	cout << "---------------------------------" << endl;
-	cout << "Left Rotation Test case" << endl;
-	cout << "---------------------------------" << endl;
+	fs.open(testCase);
 
 	int n = 0;
 	int d = 0;
@@ -68,9 +64,9 @@ int main()
 		cout << "Erreur lors de l'ouverture du fichier" << endl;
 	}
 
-	cout << "Test case 1" << endl;
+	cout << "Size of the array " << n << endl;
+	cout << "Number of rotation we want to do " << d << endl;
 	printVector(a);
-	cout << endl;
 
 	vector<int> result = rotLeft(a, d);
 	cout << endl;
@@ -93,5 +89,29 @@ int main()
 	}
 	fs.close();
 
+}
+
+int main()
+{
+	cout << "A left rotation operation on an array shifts each of the array's elements 1 unit to the left. For example, if 2 left rotations are ";
+	cout << "performed on array [1,2,3,4,5], then the array would become [3,4,5,1,2]." << endl;
+	cout << endl;
+	
+	cout << "---------------------------------" << endl;
+	cout << "Left Rotation Test case" << endl;
+	cout << "---------------------------------" << endl;
+
+	cout << "Test case 1" << endl;
+	TestCases("LeftRotationTest1.txt");
+	cout << endl;
+
+	cout << "Test case 2" << endl;
+	TestCases("LeftRotationTest2.txt");
+	cout << endl;
+
+	cout << "Test case 3" << endl;
+	TestCases("LeftRotationTest3.txt");
+	cout << endl;
+	
 	return 0;
 }
