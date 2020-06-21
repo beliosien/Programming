@@ -7,26 +7,32 @@ using UnityEngine;
 ///</summary>
 public class SpeedSterCube : CubeScript
 {
-    #region constructor 
-
-    ///<summary>
-    /// constructor
-    ///<param name="cubeType"> the type of cube </param>
-    ///<param name="gameObject"> the game object </parma>
-    ///</summary>
-    public SpeedSterCube(GameConstants.CubeType cubeType, GameObject gameObject) : base(cubeType, gameObject) {}
-
-    #endregion
-
     #region Public methods
 
     ///<summary>
     /// method that increase the speed of the cube
     ///</summary>
     public void IncreaseSpeed() {
-        if (this.Speed < GameConstants.MAX_SPEED) 
+        if (playerInfo.Speed < GameConstants.MAX_SPEED) 
         {
-            this.Speed += GameConstants.INCREASE_VALUE;
+            playerInfo.Speed += GameConstants.INCREASE_VALUE;
+        }
+    }
+
+    public override void Move() 
+    {
+        print (" i am moving speedster cube");
+    }
+
+    ///<summary>
+    /// the speed of the cube increase by some factor each time 
+    /// it touches another cube 
+    /// <param name="other"> the other cube </param>
+    void OnCollisionEnter(Collision other) 
+    {
+        if(gameObject.tag == GameConstants.HUNTED && other.gameObject.tag == GameConstants.HUNTER)
+        {
+            IncreaseSpeed();
         }
     }
 

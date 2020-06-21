@@ -7,16 +7,6 @@ using UnityEngine;
 ///</summary>
 public class SlowerCube : CubeScript
 {
-    #region constructor
-
-    ///<summary>
-    /// constructor
-    ///<param name="cubeType"> the type of cube </param>
-    ///<param name="gameObject"> the game object </param>
-    ///</summary>
-    public SlowerCube(GameConstants.CubeType cubeType, GameObject gameObject) : base(cubeType, gameObject) {}
-
-    #endregion
 
     #region public method
 
@@ -27,22 +17,23 @@ public class SlowerCube : CubeScript
     ///</summary>
     public void ReduceSpeed(GameObject opponentCube) 
     {
-        string cubeName = opponentCube.gameObject.name;
-        switch (cubeName)
-        {
-            case GameConstants.slowerCube: 
-                opponentCube.gameObject.GetComponent<SlowerBehavior>().CubeSlow.Speed 
-                                                    -= GameConstants.FACTOR_SPEED_REDUCE;
-                break;
-            
-            case GameConstants.speedsterCube:
-                opponentCube.gameObject.GetComponent<SpeedSterBehavior>().CubeSpeedSter.Speed 
-                                                    -= GameConstants.FACTOR_SPEED_REDUCE;
-                break;
+        opponentCube.gameObject.GetComponent<PlayerInfo>().Speed -= GameConstants.FACTOR_SPEED_REDUCE;
+    }
 
-            default:
-                Debug.Log("in the default case");
-                break;
+    public override void Move()
+    {
+        print("allo");
+    }
+
+    ///<summary>
+    /// the slower cube will reduce  the speed of the opponent  
+    /// by some factor each time on touch
+    /// <param name="other"> the other cube </param>
+    void OnCollisionEnter(Collision other) 
+    {
+        if(gameObject.tag == GameConstants.HUNTER && other.gameObject.tag == GameConstants.HUNTED)
+        {
+            ReduceSpeed(other.gameObject);
         }
     }
 
