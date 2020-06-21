@@ -42,22 +42,20 @@ public abstract class CubeScript : MonoBehaviour
     ///<summary>
     /// move the cube in the direction that we want
     ///</summary>
-    public abstract void Move(); 
-   // {
-        /*if (gameObject.tag == GameConstants.HUNTED) 
+    public void Move() 
+   {
+        if (gameObject.tag == GameConstants.HUNTED) 
         {
-            float translationX = Input.GetAxis("Horizontal") * speed * Time.deltaTime * -1;
-            float translationY = Input.GetAxis("Vertical") * speed * Time.deltaTime * -1;
-            gameObject.transform.Translate(translationX,0,translationY);  
+            float translationX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+            float translationY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            gameObject.transform.Translate(translationX, 0.0f, translationY);  
         } else if (gameObject.tag == GameConstants.HUNTER)
         {
             // we find the hunted cube to chase after it 
             GameObject hunted = GameObject.FindGameObjectWithTag(GameConstants.HUNTED);
             this.ChaseCube(hunted);
-        } */
-         
-
-    //}
+        }
+    }
     #endregion
 
 
@@ -69,16 +67,33 @@ public abstract class CubeScript : MonoBehaviour
     ///</summary>
     public void ChaseCube(GameObject cube) 
     {
-        float distance = Vector3.Distance(gameObject.transform.position,  cube.gameObject.transform.position);
-        if (distance > GameConstants.MINDIST)
-        {
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, 
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, 
                                 cube.gameObject.transform.position, 2.0f * Time.deltaTime);
-        }
+
         // stop the game object when it reach the hunted
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
+    ///<Summary>
+    /// the special power of each cube
+    /// </Summary>
+    public abstract void SpecialPower(GameObject other);
+
     #endregion
- 
+
+    #region private methods
+
+    private void OnCollisionEnter(Collision other) 
+    {
+        if (other.gameObject.tag == GameConstants.HUNTER)
+        {
+            SpecialPower(other.gameObject);
+            gameObject.tag = GameConstants.HUNTER;
+            other.gameObject.tag = GameConstants.HUNTED;
+        }
+
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
+    #endregion
 }

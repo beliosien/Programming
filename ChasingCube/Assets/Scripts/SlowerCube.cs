@@ -15,26 +15,9 @@ public class SlowerCube : CubeScript
     /// on touch
     ///<param name="opponentCube"> opponentCube </param>
     ///</summary>
-    public void ReduceSpeed(GameObject opponentCube) 
+    public override void SpecialPower(GameObject other) 
     {
-        opponentCube.gameObject.GetComponent<PlayerInfo>().Speed -= GameConstants.FACTOR_SPEED_REDUCE;
-    }
-
-    public override void Move()
-    {
-        print("allo");
-    }
-
-    ///<summary>
-    /// the slower cube will reduce  the speed of the opponent  
-    /// by some factor each time on touch
-    /// <param name="other"> the other cube </param>
-    void OnCollisionEnter(Collision other) 
-    {
-        if(gameObject.tag == GameConstants.HUNTER && other.gameObject.tag == GameConstants.HUNTED)
-        {
-            ReduceSpeed(other.gameObject);
-        }
+        other.gameObject.GetComponent<PlayerInfo>().Speed -= GameConstants.FACTOR_SPEED_REDUCE;
     }
 
     #endregion
