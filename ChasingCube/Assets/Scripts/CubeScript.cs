@@ -68,10 +68,8 @@ public abstract class CubeScript : MonoBehaviour
     public void ChaseCube(GameObject cube) 
     {
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, 
-                                cube.gameObject.transform.position, 2.0f * Time.deltaTime);
+                                cube.gameObject.transform.position, playerInfo.Speed * Time.deltaTime);
 
-        // stop the game object when it reach the hunted
-        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     ///<Summary>
@@ -90,9 +88,11 @@ public abstract class CubeScript : MonoBehaviour
             SpecialPower(other.gameObject);
             gameObject.tag = GameConstants.HUNTER;
             other.gameObject.tag = GameConstants.HUNTED;
-        }
 
-        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            // stop the game object when it reach the hunted
+            playerInfo.Speed = 0.0f;
+            other.gameObject.GetComponent<PlayerInfo>().Speed = 0.0f;
+        }
     }
 
     #endregion

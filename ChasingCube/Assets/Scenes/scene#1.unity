@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePt: 6
   health: 15
-  speed: 1
+  speed: 2
 --- !u!114 &869484780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePt: 5
   health: 10
-  speed: 1
+  speed: 2
 --- !u!1001 &6259571061971677737
 PrefabInstance:
   m_ObjectHideFlags: 0
