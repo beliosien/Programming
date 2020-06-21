@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 ///  Cube class the base of all type of cube in the game 
@@ -21,6 +19,7 @@ public abstract class CubeScript : MonoBehaviour
 
     protected PlayerInfo playerInfo;
 
+
     #endregion 
 
     private void Start() 
@@ -29,6 +28,7 @@ public abstract class CubeScript : MonoBehaviour
        playerInfo.Speed = speed;
        playerInfo.Health = health;
        playerInfo.DamagePt = damagePt;
+       Timer.instance.Duration = GameConstants.DURATION;
     }
 
     private void Update() 
@@ -49,7 +49,7 @@ public abstract class CubeScript : MonoBehaviour
             float translationX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
             float translationY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
             gameObject.transform.Translate(translationX, 0.0f, translationY);  
-        } else if (gameObject.tag == GameConstants.HUNTER)
+        } else if (gameObject.tag == GameConstants.HUNTER && !Timer.instance.Running)
         {
             // we find the hunted cube to chase after it 
             GameObject hunted = GameObject.FindGameObjectWithTag(GameConstants.HUNTED);
@@ -88,10 +88,7 @@ public abstract class CubeScript : MonoBehaviour
             SpecialPower(other.gameObject);
             gameObject.tag = GameConstants.HUNTER;
             other.gameObject.tag = GameConstants.HUNTED;
-
-            // stop the game object when it reach the hunted
-            playerInfo.Speed = 0.0f;
-            other.gameObject.GetComponent<PlayerInfo>().Speed = 0.0f;
+            Timer.instance.Run();
         }
     }
 

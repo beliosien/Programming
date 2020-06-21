@@ -23,6 +23,16 @@ public class Timer : MonoBehaviour
 	
 	#region Properties
 	
+	// Get this cursor singleton through other scripts
+    public static Timer instance { get; private set; }
+
+	private void Awake()
+    {
+        if (instance == null)
+            instance = this; 
+    }
+
+
 	/// <summary>
 	/// Sets the duration of the timer
 	/// The duration can only be set if the timer isn't currently running

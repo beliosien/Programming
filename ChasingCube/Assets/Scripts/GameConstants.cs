@@ -14,6 +14,7 @@ public static class GameConstants
     public static float DAMAGE_POINT = 10.0f;
     public static float FACTOR_SPEED_REDUCE = 1.5f;
     public static float HEALTH = 10.0f;
+    public static int DURATION = 5;
 
     ///<summary>
     /// the minimal distance between cube 
