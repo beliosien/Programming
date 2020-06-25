@@ -25,7 +25,7 @@ int64_t Multiply(const std::int64_t& a, const std::int64_t& b)
 	}
 }
 
-void Verify(const std::int64_t& realResult, const std::int64_t algoResult)
+void Verify(const std::int64_t& realResult, const std::int64_t& algoResult)
 {
 	if (algoResult != realResult)
 	{
@@ -37,13 +37,6 @@ void Verify(const std::int64_t& realResult, const std::int64_t algoResult)
 	}
 }
 
-void RunTestcases()
-{
-	std::cout << "Test case 1" << std::endl;
-
-	std::cout << "Test case 2" << std::endl;
-
-}
 
 void subDivide(int64_t& a, int64_t& b, int64_t& c, int64_t& d, std::string& first, std::string& second)
 {
@@ -55,11 +48,7 @@ void subDivide(int64_t& a, int64_t& b, int64_t& c, int64_t& d, std::string& firs
 
 int64_t KarastubaMultiplication(std::string& first, std::string& second)
 {
-	if (first.size() == 1 && second.size() == 1)
-	{
-		return std::stoll(first) * std::stoll(second);
-	}
-	else
+	if (first.size() > 1 && second.size() > 1)
 	{
 		int64_t a, b, c, d;
 		unsigned int n = 0;
@@ -80,8 +69,30 @@ int64_t KarastubaMultiplication(std::string& first, std::string& second)
 
 		return (int64_t)((pow(10,n) * ac) + ( pow(10,n/2) * somme)+ bd);
 	}
+	
+	return std::stoll(first) * std::stoll(second);
 }
 
+void RunTestcases()
+{
+	std::string a = "1234";
+	std::string b = "5678";
+
+	int64_t result = std::stoll(a) * std::stoll(b);
+
+	std::cout << "Test case 1" << std::endl;
+	std::cout << "Input Numbers are: " << a << " " << b << std::endl;
+	Verify(result, KarastubaMultiplication(a, b));
+
+	std::cout << std::endl;
+	std::cout << "Test case 2" << std::endl;
+	a = "1";
+	b = "20"; 
+	result = 1 * 20;
+	std::cout << "Input Numbers are: " << a << " " << b << std::endl;
+	Verify(result, KarastubaMultiplication(a, b));
+
+}
 
 int main()
 {
