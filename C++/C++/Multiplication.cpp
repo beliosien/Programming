@@ -1,16 +1,16 @@
 /**
 		This code multiply 2 64 bits digits numbers with the karatsuba algorithm
-
 		author: Ossim Belias
 */
 
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include <math.h>
 
-int64_t Multiply(const std::int64_t& a, const std::int64_t& b)
+long int Multiply(const long int& a, const long int& b)
 {
-	int64_t value = 0;
+	long int value = 0;
 	if (a == 0 || b == 0)
 		return 0;
 	else if (a >= b)
@@ -18,14 +18,14 @@ int64_t Multiply(const std::int64_t& a, const std::int64_t& b)
 		value = a;
 		return value += Multiply(a, b - 1);
 	}
-	else if ( a < b)
+	else if (a < b)
 	{
 		value = b;
 		return value += Multiply(a - 1, b);
 	}
 }
 
-void Verify(const std::int64_t& realResult, const std::int64_t& algoResult)
+void Verify(const long int& realResult, const long int& algoResult)
 {
 	if (algoResult != realResult)
 	{
@@ -38,7 +38,7 @@ void Verify(const std::int64_t& realResult, const std::int64_t& algoResult)
 }
 
 
-void subDivide(int64_t& a, int64_t& b, int64_t& c, int64_t& d, std::string& first, std::string& second)
+void subDivide(long int& a, long int& b, long int& c, long int& d, std::string& first, std::string& second)
 {
 	a = std::stoll(first.substr(0, first.size() / 2));
 	b = std::stoll(first.substr(first.size() / 2));
@@ -46,31 +46,19 @@ void subDivide(int64_t& a, int64_t& b, int64_t& c, int64_t& d, std::string& firs
 	d = std::stoll(second.substr(second.size() / 2));
 }
 
-int64_t KarastubaMultiplication(std::string& first, std::string& second)
+long int KarastubaMultiplication(std::string& first, std::string& second)
 {
-	if (first.size() > 1 && second.size() > 1)
-	{
-		int64_t a, b, c, d;
-		unsigned int n = 0;
-		subDivide(a, b, c, d, first, second);
-		int64_t ac = Multiply(a,c);
-		int64_t bd = Multiply(b,d);	
-		int64_t somme = Multiply(a,d) + Multiply(b,c);
+	int n = std::max(first.size(), second.size());
+	if (n == 0) return 0;
+	if (n == 1) return std::stoll(first) * std::stoll(second);
 
+	long int a , b , c , d;
+	subDivide(a, b, c, d, first, second);
+	long int ac = Multiply(a, c);
+	long int bd = Multiply(b, d);
+	long int somme = Multiply(a + b, c + d);
 
-		if (first.size() > second.size())
-		{
-			n = first.size();
-		}
-		else
-		{
-			n = second.size();
-		}
-
-		return (int64_t)((pow(10,n) * ac) + ( pow(10,n/2) * somme)+ bd);
-	}
-	
-	return std::stoll(first) * std::stoll(second);
+	return ((pow(10, n) * ac) + (pow(10, n / 2) * (somme - ac - bd)) + bd);	
 }
 
 void RunTestcases()
@@ -78,7 +66,7 @@ void RunTestcases()
 	std::string a = "1234";
 	std::string b = "5678";
 
-	int64_t result = std::stoll(a) * std::stoll(b);
+	long int result = std::stoll(a) * std::stoll(b);
 
 	std::cout << "Test case 1" << std::endl;
 	std::cout << "Input Numbers are: " << a << " " << b << std::endl;
@@ -87,7 +75,7 @@ void RunTestcases()
 	std::cout << std::endl;
 	std::cout << "Test case 2" << std::endl;
 	a = "1";
-	b = "20"; 
+	b = "20";
 	result = 1 * 20;
 	std::cout << "Input Numbers are: " << a << " " << b << std::endl;
 	Verify(result, KarastubaMultiplication(a, b));
@@ -97,7 +85,7 @@ void RunTestcases()
 int main()
 {
 	std::string a, b;
-	int64_t number_1, number_2, realResult, algoResult;
+	long int number_1, number_2, realResult, algoResult;
 	bool isValidInput = false;
 	int option = -1;
 	do
@@ -119,42 +107,42 @@ int main()
 		}
 		switch (option)
 		{
-			case 0:
-				std::cout << "Bye bye " << std::endl;
-				break;
-			case 1:
-				do
+		case 0:
+			std::cout << "Bye bye " << std::endl;
+			break;
+		case 1:
+			do
+			{
+				try
 				{
-					try
-					{
-						std::cout << "Enter your digits " << std::endl;
-						std::cin >> a;
-						number_1 = std::stoll(a);
-						std::cin >> b;
-						number_2 = std::stoll(b);
-						isValidInput = true;
-					}
-					catch (const std::exception& e)
-					{
-						std::cout << "Invalid input or the number is too large try again" << std::endl;
-						std::cin.clear();
-						isValidInput = false;
-					}
-				} while (!isValidInput);
+					std::cout << "Enter your digits " << std::endl;
+					std::cin >> a;
+					number_1 = std::stoll(a);
+					std::cin >> b;
+					number_2 = std::stoll(b);
+					isValidInput = true;
+				}
+				catch (const std::exception& e)
+				{
+					std::cout << "Invalid input or the number is too large try again" << std::endl;
+					std::cin.clear();
+					isValidInput = false;
+				}
+			} while (!isValidInput);
 
-				realResult = number_1 * number_2;
-				algoResult = KarastubaMultiplication(a, b);
-				Verify(realResult, algoResult);
-				break;
+			realResult = number_1 * number_2;
+			algoResult = KarastubaMultiplication(a, b);
+			Verify(realResult, algoResult);
+			break;
 
-			case 2:
-				RunTestcases();
-				break;
-			default:
-				break;
+		case 2:
+			RunTestcases();
+			break;
+		default:
+			break;
 		}
 
 	} while (option != 0);
-	
+
 	std::cin.get();
 }
