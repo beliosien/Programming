@@ -18,7 +18,7 @@
     <ClCompile Include="Multiplication.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Fibonacci.cpp">
+    <ClCompile Include="simpleAlgo.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
