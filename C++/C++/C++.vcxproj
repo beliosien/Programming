@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Fibonacci.cpp" />
     <ClCompile Include="Multiplication.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

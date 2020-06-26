@@ -1,13 +1,2 @@
-﻿  Multiplication.cpp
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(43,16): warning C4244:  '=' : conversion de '__int64' en 'long', perte possible de données
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(44,16): warning C4244:  '=' : conversion de '__int64' en 'long', perte possible de données
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(45,16): warning C4244:  '=' : conversion de '__int64' en 'long', perte possible de données
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(46,16): warning C4244:  '=' : conversion de '__int64' en 'long', perte possible de données
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(53,39): warning C4244:  'return' : conversion de '__int64' en 'long', perte possible de données
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(61,67): warning C4244:  'return' : conversion de 'double' en 'long', perte possible de données
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(69,18): warning C4244:  'initialisation' : conversion de '__int64' en 'long', perte possible de données
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(120,27): warning C4244:  '=' : conversion de '__int64' en 'long', perte possible de données
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(122,27): warning C4244:  '=' : conversion de '__int64' en 'long', perte possible de données
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(125,34): warning C4101:  'e' : variable locale non référencée
-C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Multiplication.cpp(26): warning C4715:  'Multiply' : les chemins de contrôle ne retournent pas tous une valeur
+﻿  Fibonacci.cpp
   C++.vcxproj -> C:\Users\OMADJANG\Desktop\ProjetPerso\GameDevIn\C#_Unity\ChasingCube\C++\C++\Debug\C++.exe
