@@ -18,7 +18,7 @@ public class Percolation {
     public Percolation(int n) {
         this.gridSize = n + 1;
         this.topVirtualSiteParentIndex = this.xyTo1D(0, 0);
-        this.bottomVirtualSiteParentIndex = this.xyTo1D(n, n);
+        this.bottomVirtualSiteParentIndex = this.xyTo1D(n, 0);
         this.connectedSites = new WeightedQuickUnionUF(gridSize * gridSize + 2);
         this.grid = new boolean[gridSize][gridSize];
         for (int i = 0; i < gridSize; i++) {
@@ -29,13 +29,13 @@ public class Percolation {
 
         // Top virtual site
         for (int i = 1; i < gridSize; i++) {
-            int indexPt = this.xyTo1D(0, i);
+            int indexPt = this.xyTo1D(1, i);
             this.connectedSites.union(indexPt, this.topVirtualSiteParentIndex);
         }
 
         // bottom virtual site
-        for (int j = 0; j < gridSize - 1; j++) {
-            int indexPt = this.xyTo1D(gridSize - 1, j);
+        for (int j = 1; j < gridSize; j++) {
+            int indexPt = this.xyTo1D(gridSize - 2, j);
             this.connectedSites.union(indexPt, this.bottomVirtualSiteParentIndex);
         }
 
@@ -94,10 +94,11 @@ public class Percolation {
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {
         int point = this.xyTo1D(row, col);
-        return this.isIndexValid(row, col)
+        boolean value = this.isIndexValid(row, col)
                 && this.connectedSites.find(this.topVirtualSiteParentIndex) == this.connectedSites
-                .find(point);
-
+                .find(point) && this.isOpen(row, col);
+        System.out.println(value);
+        return value;
     }
 
     // convert 2D coordonnates to 1D
@@ -140,6 +141,9 @@ public class Percolation {
 
     // test client (optional)
     public static void main(String[] args) {
-
+        Percolation p = new Percolation(4);
+        p.open(0, 1);
+        System.out.println(p.isFull(0, 1));
+        System.out.println(p.isFull(1, 0));
     }
 }
