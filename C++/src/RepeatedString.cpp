@@ -1,5 +1,7 @@
 #include <algorithm>
-#include <bits/stdc++.h>
+#include <string>
+#include <iostream>
+#include <fstream>
 #include <cstdio>
 #include <vector>
 
