@@ -42,7 +42,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="settings.saveactions" />
   </component>
-  <component name="RunManager" selected="Application.InteractivePercolationVisualizer">
+  <component name="RunManager" selected="Application.Percolation">
     <configuration name="InteractivePercolationVisualizer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="InteractivePercolationVisualizer" />
       <module name="Algorithms, Part I" />
@@ -54,10 +54,16 @@
       <module name="Algorithms, Part I" />
       <method v="2" />
     </configuration>
+    <configuration name="PercolationStats" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="PercolationStats" />
+      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="200 100" />
+      <method v="2" />
+    </configuration>
     <configuration name="PercolationVisualizer" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="PercolationVisualizer" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="5" />
+      <option name="PROGRAM_PARAMETERS" value="heart25.txt" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -79,38 +85,38 @@
     </todo-panel>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1367" height="195" key="GridCell.Tab.0.bottom" timestamp="1594486557907">
+    <state width="1367" height="195" key="GridCell.Tab.0.bottom" timestamp="1594498692847">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="195" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594486557907" />
-    <state width="1367" height="195" key="GridCell.Tab.0.center" timestamp="1594486557907">
+    <state width="1367" height="195" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594498692847" />
+    <state width="1367" height="195" key="GridCell.Tab.0.center" timestamp="1594498692847">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="195" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594486557907" />
-    <state width="1367" height="195" key="GridCell.Tab.0.left" timestamp="1594486557907">
+    <state width="1367" height="195" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594498692847" />
+    <state width="1367" height="195" key="GridCell.Tab.0.left" timestamp="1594498692831">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="195" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594486557907" />
-    <state width="1367" height="195" key="GridCell.Tab.0.right" timestamp="1594486557907">
+    <state width="1367" height="195" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594498692831" />
+    <state width="1367" height="195" key="GridCell.Tab.0.right" timestamp="1594498692847">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="195" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594486557907" />
-    <state width="1367" height="243" key="GridCell.Tab.1.bottom" timestamp="1594486162326">
+    <state width="1367" height="195" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594498692847" />
+    <state width="1367" height="243" key="GridCell.Tab.1.bottom" timestamp="1594498692784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594486162326" />
-    <state width="1367" height="243" key="GridCell.Tab.1.center" timestamp="1594486162326">
+    <state width="1367" height="243" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594498692784" />
+    <state width="1367" height="243" key="GridCell.Tab.1.center" timestamp="1594498692784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1594486162326" />
-    <state width="1367" height="243" key="GridCell.Tab.1.left" timestamp="1594486162326">
+    <state width="1367" height="243" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1594498692784" />
+    <state width="1367" height="243" key="GridCell.Tab.1.left" timestamp="1594498692784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1594486162326" />
-    <state width="1367" height="243" key="GridCell.Tab.1.right" timestamp="1594486162326">
+    <state width="1367" height="243" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1594498692784" />
+    <state width="1367" height="243" key="GridCell.Tab.1.right" timestamp="1594498692784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1594486162326" />
+    <state width="1367" height="243" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1594498692784" />
     <state x="252" y="93" width="861" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1594424505145">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

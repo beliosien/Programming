@@ -30,19 +30,13 @@ public class Percolation {
         // Top virtual site
         for (int i = 1; i < gridSize; i++) {
             int indexPt = this.xyTo1D(1, i);
-            if (indexPt != -1) {
-                this.connectedSites.union(indexPt, this.topVirtualSiteParentIndex);
-            }
-
+            this.connectedSites.union(indexPt, this.topVirtualSiteParentIndex);
         }
 
         // bottom virtual site
         for (int j = 1; j < gridSize; j++) {
             int indexPt = this.xyTo1D(gridSize - 1, j);
-            if (indexPt != -1) {
-                this.connectedSites.union(indexPt, this.bottomVirtualSiteParentIndex);
-            }
-
+            this.connectedSites.union(indexPt, this.bottomVirtualSiteParentIndex);
         }
 
     }
