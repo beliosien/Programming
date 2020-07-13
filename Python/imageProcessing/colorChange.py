@@ -2,7 +2,6 @@
 # Date: 2020-07-12
 # This code take an image create a contact sheet and modify the intensity of the color of each channel
 
-
 import PIL
 from PIL import Image
 from PIL import ImageEnhance
@@ -40,8 +39,8 @@ for img in images:
     #Draw the text on the image
     text = "Channel {} intensity {}".format(rowDict[y], intensityDict[x])
     draw = ImageDraw.Draw(img)
-    draw.rectangle((0,int(img.width/2), img.width, img.height), fill="black", outline="red")
-    draw.text((0,int(img.width/2)), text, font = font, align ="left") 
+    draw.rectangle((0,image.height - 50, img.width, img.height), fill="black", outline="red")
+    draw.text((0,image.height - 50), text, font = font, align ="left") 
     
     #put the appropriate intensity on the image
     img_width, img_height = img.size
