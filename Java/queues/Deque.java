@@ -1,7 +1,9 @@
 /* *****************************************************************************
- *  Name:
+ *  Name: Ossim Belias
  *  Date: 2020-07-13
  *  Description: Implementation of my own generic deque queue
+ * A double-ended queue or deque (pronounced “deck”) is a generalization of a stack and a queue
+ * that supports adding and removing items from either the front or the back of the data structure.
  **************************************************************************** */
 
 import java.util.Iterator;
@@ -35,6 +37,29 @@ public class Deque<Item> implements Iterable<Item> {
         // set the next node
         public void setNext(Node next) {
             this.next = next;
+        }
+    }
+
+    private class ListIterator implements Iterator<Item> {
+        private Node current = first;
+
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        public Item next() {
+            if (this.current != null) {
+                Item item = this.current.getItem();
+                this.current = this.current.getNext();
+                return item;
+            }
+            else {
+                throw new NoSuchElementException();
+            }
+        }
+
+        public void remove() {
+            throw new UnsupportedOperationException();
         }
     }
 
@@ -130,28 +155,6 @@ public class Deque<Item> implements Iterable<Item> {
         return new ListIterator();
     }
 
-    private class ListIterator implements Iterator<Item> {
-        private Node current = first;
-
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        public Item next() {
-            if (this.current != null) {
-                Item item = this.current.getItem();
-                this.current = this.current.getNext();
-                return item;
-            }
-            else {
-                throw new NoSuchElementException();
-            }
-        }
-
-        public void remove() {
-            throw new UnsupportedOperationException();
-        }
-    }
 
     // unit testing (required)
     public static void main(String[] args) {
@@ -176,5 +179,4 @@ public class Deque<Item> implements Iterable<Item> {
         }
         System.out.println();
     }
-
 }
