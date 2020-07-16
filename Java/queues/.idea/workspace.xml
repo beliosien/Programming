@@ -42,7 +42,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="settings.saveactions" />
   </component>
-  <component name="RunManager" selected="Application.Permutation">
+  <component name="RunManager" selected="Application.RandomizedQueue">
     <configuration name="Deque" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Deque" />
       <module name="Algorithms, Part I" />
@@ -51,13 +51,12 @@
     <configuration name="Permutation" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Permutation" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="distinct.txt  4" />
+      <option name="PROGRAM_PARAMETERS" value="3" />
       <method v="2" />
     </configuration>
     <configuration name="RandomizedQueue" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="RandomizedQueue" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="distinct.txt 2" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -83,37 +82,48 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="387" y="151" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1366.728@0.0.1366.728" timestamp="1594699530237" />
-    <state width="1367" height="243" key="GridCell.Tab.0.bottom" timestamp="1594781501399">
+    <state width="1367" height="243" key="GridCell.Tab.0.bottom" timestamp="1594858035009">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594781501399" />
-    <state width="1367" height="243" key="GridCell.Tab.0.center" timestamp="1594781501331">
+    <state width="1367" height="243" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594858035009" />
+    <state width="1367" height="243" key="GridCell.Tab.0.center" timestamp="1594858035009">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594781501331" />
-    <state width="1367" height="243" key="GridCell.Tab.0.left" timestamp="1594781501302">
+    <state width="1367" height="243" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594858035009" />
+    <state width="1367" height="243" key="GridCell.Tab.0.left" timestamp="1594858035009">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594781501302" />
-    <state width="1367" height="243" key="GridCell.Tab.0.right" timestamp="1594781501381">
+    <state width="1367" height="243" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594858035009" />
+    <state width="1367" height="243" key="GridCell.Tab.0.right" timestamp="1594858035009">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594781501381" />
-    <state width="1367" height="243" key="GridCell.Tab.1.bottom" timestamp="1594781501400">
+    <state width="1367" height="243" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594858035009" />
+    <state width="1367" height="243" key="GridCell.Tab.1.bottom" timestamp="1594858035010">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594781501400" />
-    <state width="1367" height="243" key="GridCell.Tab.1.center" timestamp="1594781501400">
+    <state width="1367" height="243" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594858035010" />
+    <state width="1367" height="243" key="GridCell.Tab.1.center" timestamp="1594858035010">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1594781501400" />
-    <state width="1367" height="243" key="GridCell.Tab.1.left" timestamp="1594781501399">
+    <state width="1367" height="243" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1594858035010" />
+    <state width="1367" height="243" key="GridCell.Tab.1.left" timestamp="1594858035010">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1594781501399" />
-    <state width="1367" height="243" key="GridCell.Tab.1.right" timestamp="1594781501400">
+    <state width="1367" height="243" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1594858035010" />
+    <state width="1367" height="243" key="GridCell.Tab.1.right" timestamp="1594858035010">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="243" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1594781501400" />
+    <state width="1367" height="243" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1594858035010" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1594855910035">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1594855910035" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="this.first" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
