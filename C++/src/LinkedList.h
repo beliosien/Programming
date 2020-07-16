@@ -4,38 +4,17 @@
  * @brief Implementation of my own generic  doubly LinkedList in C++
  *
 */
+#pragma once
+
+#include "Node.h"
 
 template <typename T>
 class LinkedList
-{
-    class Node
-    {
-    private:
-        T item_;
-        Node* next_;
-        Node* prev_;
-        
-    public:
-        // constructor
-        Node(T& item);
-        // destructor
-        ~Node();
-    
-        // return the next node 
-        Node& getNext();
-        // return the previous node
-        Node& getPrevious();
-        // return the item
-        T& getItem();
-        // set the next node
-        void setNext(Node& next);
-        // set the previous node
-        void setPrevious(Node& previous);
-    };
-    
+{   
 private:
-    Node* head_;
-    Node* tail_;
+    Node<T>* head_;
+    Node<T>* tail_;
+    int size_;
 public:
     // constructor
     LinkedList();
@@ -50,6 +29,13 @@ public:
     T& removeFirst();
     // remove element at the end
     T& removeLast();
+    // return the size 
+    int size();
+    // check if the doubly linked list is empty
+    bool isEmpty();
 };
+
+
+
 
 

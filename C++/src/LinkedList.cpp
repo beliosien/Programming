@@ -3,6 +3,7 @@
 template<typename T>
 LinkedList<T>::LinkedList(): head_(nullptr), tail_(nullptr)
 {
+    size_ = 0;
 }
 
 template<typename T>
@@ -13,41 +14,85 @@ LinkedList<T>::~LinkedList()
 }
 
 template<typename T>
-LinkedList<T>::Node::Node(T& item): item_(item), next(nullptr), prev(nullptr)
+void LinkedList<T>::addFirst(T& item)
 {
+    if (this.isEmpty())
+    {
+        head_ = new Node(item);
+        tail_ = head_;
+    } else
+    {
+        if (this->size == 1)
+        {
+            head_ = new Node(item);
+            head_->setPrevious(tail_);
+            tail_->setNext(head_);
+
+        } else
+        {
+            Node<T>* temp = head_;
+            head_ = new Node(item);
+            temp->setNext(head_);
+            head_->setPrevious(temp); 
+        }
+    }
+    size_++;
+}
+
+template<typename T> 
+void LinkedList<T>::addLast(T& item)
+{
+    if (this->isEmpty())
+    {
+        tail_ = new Node(item);
+        head_ = tail_;
+    } else if (this->size_ == 1)
+    {
+        tail_ = new Node(item);
+        tail_->setNext(head_);
+        head_->setPrevious(tail_);
+    } else
+    {
+        Node<T>* temp = tail;
+        tail_ = new Node(item);
+        temp->setPrevious(tail_);
+        tail_->setNext(temp);
+    }
+    size_++;
 }
 
 template<typename T>
-T& LinkedList<T>::Node::getItem()
+T& LinkedList<T>::removeFirst()
 {
-    return item_;
+    Node* temp = head_;
+    T item = head_->getItem();
+    head_ = head_->getPrevious();
+    head_->setNext(nullptr);
+    size_--;
+    delete temp;
+    return item;
 }
 
 template<typename T>
-LinkedList<T>::Node& LinkedList<T>::Node::getNext()
+T& LinkedList<T>::removeLast()
 {
-    return &next_;
+    Node* temp = tail_;
+    T item = tail_->getItem();
+    tail_ = tail_->getNext();
+    tail_->setPrevious(nullptr);
+    size_--;
+    delete temp;
+    return item;
 }
 
 template<typename T>
-LinkedList<T>::Node& LinkedList<T>::Node::getPrevious()
+int LinkedList<T>::size()
 {
-    return &prev_;
+    return this->size_;
 }
 
 template<typename T>
-void LinkedList<T>::Node::setNext(Node& next)
+bool LinkedList<T>::isEmpty()
 {
-    this->next_ = next;
-}
-
-template<typename T>
-void LinkedList<T>::Node::setPrevious(Node& prev)
-{
-    this->prev_ = prev;
-}
-
-template<typename T>
-LinkedList<T>::Node::~Node()
-{
+    return this->size_ == 0;
 }
