@@ -18,22 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\src\2DArray.cpp" />
-    <ClCompile Include="..\src\Arrays_LeftRotation.cpp" />
-    <ClCompile Include="..\src\CountingValley.cpp" />
-    <ClCompile Include="..\src\JumpingClouds.cpp" />
-    <ClCompile Include="..\src\Multiplication.cpp" />
-    <ClCompile Include="..\src\NewYearChaos.cpp" />
-    <ClCompile Include="..\src\RepeatedString.cpp" />
-    <ClCompile Include="..\src\simpleAlgo.cpp" />
-    <ClCompile Include="..\src\SockMerchant.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d22f0d8d-9041-4873-b902-4b5ce55f1f63}</ProjectGuid>
-    <RootNamespace>portfoliocpp</RootNamespace>
+    <ProjectGuid>{157c27a6-efe2-4f07-892a-5b2a23393c81}</ProjectGuid>
+    <RootNamespace>DLinkedList</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -149,6 +138,15 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="DLinkedList.h" />
+    <ClInclude Include="Node.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DLinkedList.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Node.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

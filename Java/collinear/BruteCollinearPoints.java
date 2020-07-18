@@ -15,19 +15,24 @@ public class BruteCollinearPoints {
 
     // finds all line segments containing 4 points
     public BruteCollinearPoints(Point[] points) {
-        this.count = 0;
-        this.lineSegments = new LineSegment[INIT_SIZE];
-        if (points == null) throw new IllegalArgumentException("Argument null");
-        Arrays.sort(points);
-        for (int i = 0; i < points.length; i++) {
-            if (points[i] == null) {
-                throw new IllegalArgumentException("Argument null");
-            }
-            if (points[i].compareTo(points[i + 1]) == 0) {
-                throw new IllegalArgumentException("Same point twice");
+        if (points == null) {
+            throw new IllegalArgumentException("Argument null");
+        }
+        else {
+            this.count = 0;
+            this.lineSegments = new LineSegment[INIT_SIZE];
+            Arrays.sort(points);
+            this.points = new Point[points.length];
+            for (int i = 0; i < points.length; i++) {
+                if (points[i] == null) {
+                    throw new IllegalArgumentException("Argument null");
+                }
+                if (points[i].compareTo(points[i + 1]) == 0) {
+                    throw new IllegalArgumentException("Same point twice");
+                }
+                this.points[i] = points[i];
             }
         }
-        this.points = points;
     }
 
     private void resize(int capacity) {
@@ -45,6 +50,8 @@ public class BruteCollinearPoints {
 
     // the line segments
     public LineSegment[] segments() {
+        LineSegment[] lineSegment;
+        // review this method
         for (int i = 0; i < this.points.length - 4; i += 4) {
             double slope1 = this.points[i].slopeTo(this.points[i + 1]);
             double slop2 = this.points[i + 2].slopeTo(this.points[i + 3]);
@@ -55,7 +62,8 @@ public class BruteCollinearPoints {
                 lineSegments[this.count++] = new LineSegment(this.points[i], this.points[i + 3]);
             }
         }
-        return this.lineSegments;
+        lineSegment = this.lineSegments.clone();
+        return lineSegment;
     }
 
     // use this function for test only

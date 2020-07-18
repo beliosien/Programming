@@ -1,12 +1,12 @@
 #include "Node.h"
 
 template<typename T>
-Node<T>::Node(T& item): item_(item), next(nullptr), prev(nullptr)
+Node<T>::Node(T item) : item_(item), next_(nullptr), prev_(nullptr)
 {
 }
 
 template<typename T>
-T& Node<T>::getItem()
+T Node<T>::getItem()
 {
     return item_;
 }
@@ -18,19 +18,19 @@ Node<T>* Node<T>::getNext()
 }
 
 template<typename T>
-Node<T>* Node<T>::getPrevious()
+Node<T>* Node<T>::getPrev()
 {
     return prev_;
 }
 
 template<typename T>
-void Node<T>::setNext(Node& next)
+void Node<T>::setNext(Node* next)
 {
     this->next_ = next;
 }
 
 template<typename T>
-void Node<T>::setPrevious(Node& prev)
+void Node<T>::setPrevious(Node* prev)
 {
     this->prev_ = prev;
 }
