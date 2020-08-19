@@ -1,0 +1,2 @@
+C:\Users\Belias\Desktop\ProjetPerso_BacUp\chasingCube\C++\portfolio_cpp\OpenGl\Debug\OpenGl.exe
+C:\Users\Belias\Desktop\ProjetPerso_BacUp\chasingCube\C++\portfolio_cpp\OpenGl\Debug\OpenGl.pdb
