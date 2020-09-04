@@ -6,13 +6,13 @@ using UnityEngine;
 public static class GameConstants 
 {
     // Tags
-    const string WALL = "Wall";
-    const string PLAYER = "Player";
-    const string ENEMY = "Enemy";
-    const string BOARD = "Board";
+    public const string WALL = "Wall";
+    public const string PLAYER = "Player";
+    public const string ENEMY = "Enemy";
+    public const string BOARD = "Board";
 
     // Movement
-    const float SPEED = 0.1f;
+    public const float STEP_LENGTH = 0.2f;
     
 }
 

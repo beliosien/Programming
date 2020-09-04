@@ -8,9 +8,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     PlayerDirection playerDirection = PlayerDirection.STAY;
 
-    [HideInInspector]
-    public float step_length = 0.2f;
-
     List<Vector3> deltaPosition;
 
     [HideInInspector]
@@ -29,25 +26,25 @@ public class PlayerController : MonoBehaviour
 
         deltaPosition = new List<Vector3>()
         {
-           new Vector3 (-step_length, 0f),   // right
-           new Vector3 (step_length, 0f),  // left
-           new Vector3 (0f, step_length), // up
-           new Vector3 (0f, -step_length) // down
+           new Vector3 (-GameConstants.STEP_LENGTH, 0f),   // right
+           new Vector3 (GameConstants.STEP_LENGTH, 0f),  // left
+           new Vector3 (0f, GameConstants.STEP_LENGTH), // up
+           new Vector3 (0f, -GameConstants.STEP_LENGTH) // down
         };
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckMouvementFrequency();
+       // CheckMouvementFrequency();
     }
 
     void FixedUpdate() {
-        if (move)
+        /*if (move)
         {
             move = false;
             Move();
-        }
+        }*/
     }
 
     // move the player 
@@ -56,7 +53,7 @@ public class PlayerController : MonoBehaviour
         if (playerDirection != PlayerDirection.STAY)
         {
             Vector3 dPosition = deltaPosition[(int)playerDirection];
-            playerRigidbody.position = playerRigidbody.position + dPosition; 
+            playerRigidbody.position = playerRigidbody.position + dPosition;
         } 
     }
 

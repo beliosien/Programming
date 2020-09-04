@@ -50,6 +50,9 @@ public class PlayerInput : MonoBehaviour
         } else if (horizontal != 0)
         {
             playerController.SetDirection(horizontal == 1 ? PlayerDirection.RIGHT : PlayerDirection.LEFT);
+        } else
+        {
+            playerController.SetDirection(PlayerDirection.STAY);
         }
     }
 
