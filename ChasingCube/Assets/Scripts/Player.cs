@@ -37,13 +37,22 @@ public class Player : LivingEntity
     }
 
 
+    ///<summary>
+    /// Move the player.
+    ///</summary>
     public virtual void Move() {
         Vector3 directionPlayer = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         Vector3 moveVelocity = directionPlayer.normalized * moveSpeed;
-        playerController.Move(moveVelocity);
+
+        if (!dead){
+            playerController.Move(moveVelocity);
+        }
 
     }
 
+    ///<summary>
+    /// Function that used to call the special ability of each player.
+    ///</summary>
     public virtual IEnumerator SuperPower(){
         print("SuperPower called");
         yield return new WaitForSeconds(superPowerDelay);

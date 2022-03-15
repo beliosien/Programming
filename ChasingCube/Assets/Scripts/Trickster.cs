@@ -27,7 +27,8 @@ public class Trickster : Player
 
     public override IEnumerator SuperPower()
     {
-        trick_type = (TRICK_TYPE) Random.Range(minRandomVal, maxRandomVal);
+        //trick_type = (TRICK_TYPE) Random.Range(minRandomVal, maxRandomVal);
+        trick_type = TRICK_TYPE.BOMB;
         
         switch (trick_type)
         {
@@ -36,6 +37,7 @@ public class Trickster : Player
                 break;
             
             case TRICK_TYPE.BOMB:
+                yield return BombEnemies();
                 break;
             
             case TRICK_TYPE.STOP:
@@ -44,8 +46,10 @@ public class Trickster : Player
         }
     }
 
+    ///<summary>
+    ///Reduce temporarily the scale of the enemies on the field.
+    ///</summary>
     IEnumerator ReduceScale(){
-
         foreach (GameObject gameObject in enemiesObjects)
         {
             gameObject.transform.localScale = Vector3.one * GameConstants.SCALE_REDUCE_PERCENTAGE;
@@ -59,10 +63,25 @@ public class Trickster : Player
         }
     }
 
-    void BomBEnemies(){
+    ///<summary>
+    /// Threw bomb at enemies on the field.
+    ///</summary>
+    IEnumerator BombEnemies(){
+        Vector3 position = new Vector3(transform.position.x, bombPrefab.transform.position.y, transform.position.z);
+        GameObject newBomb = Instantiate(bombPrefab, position, Quaternion.identity) as GameObject;
+        
+        // giving force to the bomb to give the throwing effect
+       
+        yield return new WaitForSeconds(superPowerDelay);
 
+        if (newBomb != null){
+            Destroy(newBomb);
+        }
     }
 
+    ///<summary>
+    ///Stop enemies movements temporarily.
+    ///</summary>
     IEnumerator StopEnemies(){
         Queue<Vector3> originalVelocityQueue = new Queue<Vector3>();
 
