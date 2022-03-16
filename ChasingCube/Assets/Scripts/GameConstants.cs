@@ -17,4 +17,5 @@ public static class GameConstants
 
     public const string BOMB = "Bomb";
     public const string PLAYER = "Player";
+    public const string ENEMY = "Enemy";
 }

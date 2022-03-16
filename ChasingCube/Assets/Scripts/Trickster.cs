@@ -8,34 +8,28 @@ public class Trickster : Player
     public GameObject bombPrefab;
 
     enum TRICK_TYPE {
-        REDUCE_SCALE,
         BOMB,
         STOP
     };
 
     TRICK_TYPE trick_type;
     int minRandomVal = 0;
-    int maxRandomVal = 3;
+    int maxRandomVal = 2;
 
     GameObject[] enemiesObjects;
 
     protected override void Start()
     {
         base.Start();
-        enemiesObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        enemiesObjects = GameObject.FindGameObjectsWithTag(GameConstants.ENEMY);
     }
 
     public override IEnumerator SuperPower()
     {
-        //trick_type = (TRICK_TYPE) Random.Range(minRandomVal, maxRandomVal);
-        trick_type = TRICK_TYPE.BOMB;
+        trick_type = (TRICK_TYPE) Random.Range(minRandomVal, maxRandomVal);
         
         switch (trick_type)
         {
-            case TRICK_TYPE.REDUCE_SCALE:
-                yield return ReduceScale();
-                break;
-            
             case TRICK_TYPE.BOMB:
                 yield return BombEnemies();
                 break;
@@ -46,22 +40,6 @@ public class Trickster : Player
         }
     }
 
-    ///<summary>
-    ///Reduce temporarily the scale of the enemies on the field.
-    ///</summary>
-    IEnumerator ReduceScale(){
-        foreach (GameObject gameObject in enemiesObjects)
-        {
-            gameObject.transform.localScale = Vector3.one * GameConstants.SCALE_REDUCE_PERCENTAGE;
-        }
-        
-        yield return new WaitForSeconds(superPowerDelay);
-
-        foreach (GameObject gameObject in enemiesObjects)
-        {
-            gameObject.transform.localScale = Vector3.one;
-        }
-    }
 
     ///<summary>
     /// Threw bomb at enemies on the field.

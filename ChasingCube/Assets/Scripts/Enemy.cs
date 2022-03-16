@@ -11,7 +11,7 @@ public class Enemy : LivingEntity
     Transform target;
 
     float targetRadius;
-    float stopDistanceThreshold = .5f;
+    float attackDistanceThreshold = .5f;
 
     float myRadius;
 
@@ -24,36 +24,43 @@ public class Enemy : LivingEntity
         myRadius = GetComponent<CapsuleCollider>().radius;
         navMeshAgent = GetComponent<NavMeshAgent>();
 
+        StartCoroutine(Move());
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       Move();
     }
 
     ///<summary>
     /// Move the enemy toward the player.
     ///</summary>
-    void Move(){
-        Vector3 directionToTarget = new Vector3(target.position.x, 0, target.position.z);
+    IEnumerator Move(){
+        float refresh_rate = .25f;
 
-        if (!dead){
-            float distance = Vector3.Distance(transform.position, directionToTarget);
+        while(target != null){
+            Vector3 directionToTarget = (target.position - transform.position).normalized;
+            Vector3 targetPosition = target.position - directionToTarget * (myRadius + targetRadius + attackDistanceThreshold/2f);
 
-            if (distance - targetRadius - myRadius <= stopDistanceThreshold){
-                    navMeshAgent.velocity = Vector3.zero;
-            } else
-            {
-                navMeshAgent.SetDestination(directionToTarget);
+            if (!dead){
+                navMeshAgent.SetDestination(targetPosition);
             }
+
+            yield return new WaitForSeconds(refresh_rate);
         }
+
+    }
+
+    ///<summary>
+    /// Attack the player when in certain range
+    ///</summary>
+    void Attack(){
 
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == GameConstants.BOMB){
-            print("collision");
             TakeDamage(GameConstants.BOMB_DAMAGE);
 
             if (other.gameObject != null){

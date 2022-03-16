@@ -10,7 +10,7 @@ public class Slower : Player
     protected override void Start()
     {
         base.Start();
-        enemiesObject = GameObject.FindGameObjectsWithTag("Enemy");
+        enemiesObject = GameObject.FindGameObjectsWithTag(GameConstants.ENEMY);
     }
 
     public override IEnumerator SuperPower()
